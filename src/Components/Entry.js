@@ -1,10 +1,11 @@
 import React from "react";
-import { useEffect,useState } from "react";
+import { useEffect,useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import Login from "./Login";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn} from "mdbreact";
+import { MDBSpinner } from 'mdb-react-ui-kit';
 
-function NewEntry(){
+function Entry(){
    const [isLoading,setIsLoading] = useState(true)
    const [Name,setName] = useState();
    const [Province,setProvince] = useState();
@@ -65,7 +66,8 @@ function NewEntry(){
    
    if(isLoading){
       return(
-         <h1>Loading....</h1>
+        <MDBSpinner color='light'>
+        </MDBSpinner>
       )
    }
  
@@ -162,9 +164,8 @@ function NewEntry(){
               onChange={e => setInfrastructure(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="primary" outline type="submit" onClick={handleSubmit}>
+              <MDBBtn color="white" outline type="submit" onClick={handleSubmit}>
                 Register
-                <MDBIcon far icon="paper-plane" className="ml-2"  />
               </MDBBtn>
             </div>
           </form>
@@ -175,4 +176,4 @@ function NewEntry(){
       </div>
    )
 }
-export default NewEntry;
+export default Entry;

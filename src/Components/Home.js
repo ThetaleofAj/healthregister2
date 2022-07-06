@@ -1,11 +1,11 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
-import { MDBTable, MDBTableHead, MDBTableBody,MDBCol,MDBBtn ,MDBIcon } from 'mdb-react-ui-kit';
+import { MDBCol,MDBBtn,MDBSpinner} from 'mdb-react-ui-kit';
 
 
 
-function Dashboard(){
+function Home(){
    const [searchItem,setSearchItem] = useState('');
    const [data,setData] = useState();
    const [isLoading,setIsLoading] = useState(true)
@@ -29,7 +29,8 @@ function Dashboard(){
 
    if(isLoading){
       return(
-         <h1>Loading....</h1>
+         <MDBSpinner color='light'>
+      </MDBSpinner>
       )
    }
 
@@ -53,63 +54,46 @@ function Dashboard(){
    }
 
    return(
-      <>
       <div className="mainBody">
-      
          <div>
-         <MDBCol md="6">
+         <MDBCol md="9">
          <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={e=>setSearchItem(e.target.value)} onKeyDown={onSubmit} />
        </MDBCol>
          </div>
          <div className="entryArea">
          
-         <Link to='/newentry'>
-         <MDBBtn color="primary" outline type="submit">
-                Add entry
-                <MDBIcon far icon="plus-square" className="ml-2"  />
-              </MDBBtn>
+         <Link to='/newentry' className="AddEntry">
+            Add entry
          </Link>
          {localStorage.getItem('token') == null ? (<>
              <Link to='/login'>
-             <MDBBtn color="primary" outline type="submit">
                 Login
-                <MDBIcon far icon="user-circle" className="ml-2"  />
-              </MDBBtn>
              </Link>
-         </>):(<MDBBtn color="primary" onClick={Logout} outline>Logout
-         <MDBIcon far icon="paper-plane" className="ml-2"  />
+         </>):(
+         <MDBBtn color="green" onClick={Logout} outline>Logout
          </MDBBtn>)}
          </div>
-      
-         <MDBTable hover striped>
-         <MDBTableHead>
-        <tr>
-          <th>NAME</th>
-          <th>PROVINCE</th>
-          <th>DISTRICT</th>
-          <th>WARD</th>
-          <th>COORDINATES</th>
-        </tr>
-      </MDBTableHead>
-         {data.map(info=>(
-       
-         <MDBTableBody >
-           
-          <tr >
-          <Link to={`/facilitypage/${info.id}`}><td>{info.Name}</td> </Link>
-<td>{info.Province}</td>
-<td>{info.District}</td>
-<td>{info.Ward}</td>
-<td>{info.Coordinates}</td>
-</tr>
-
-         </MDBTableBody>
-))}
-</MDBTable>
+         <table>
+            <tr>
+               <th>NAME</th>
+               <th>PROVINCE</th>
+               <th>DISTRICT</th>
+               <th>WARD</th>
+               <th>COORDINATES</th>
+            </tr>
+            {data.map(info=>(
+               <tr>
+            <td><Link to={`/facilitypage/${info.id}`}>{info.Name}</Link></td>
+               <td>{info.Province}</td>
+               <td>{info.District}</td>
+              <td>{info.Ward}</td>
+             <td>{info.Coordinates}</td>
+             </tr>
+            ))}
+         </table>
       </div>
-      </>
    );
 
 }
 
-export default Dashboard;
+export default Home;

@@ -53,7 +53,7 @@ function Login(){
               onChange={e => setPassword(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="indigo" type="submit" onClick={handleSubmit} >
+              <MDBBtn color="white" type="submit" onClick={handleSubmit} >
                 Login
               </MDBBtn>
             </div>

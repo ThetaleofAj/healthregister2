@@ -11,10 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid white;
+  text-align: left;
+  padding: 8px;
+}
 
 
 .mainBody{
   padding-top: 20px;
+  background-color: black;
+  color: white;
+}
+
+.mainArea{
+  background-color: black;
 }
 
 .entryArea{
@@ -24,4 +41,9 @@ code {
 
 .thisView{
   padding-top: 15px;
+  color: white;
+}
+
+.AddEntry{
+  padding-right: 30px;
 }

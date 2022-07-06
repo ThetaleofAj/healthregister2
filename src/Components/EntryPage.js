@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect,useState } from "react";
 import { Link, useNavigate,useParams } from "react-router-dom";
 import Login from "./Login";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn} from "mdbreact";
+import { MDBSpinner } from 'mdb-react-ui-kit';
 
 
 function EntryPage(){
@@ -160,7 +161,8 @@ method: 'DELETE',
 
    if(isLoading){
       return(
-         <h1>Loading....</h1>
+        <MDBSpinner color='light'>
+        </MDBSpinner>
       )
    }
 
@@ -246,9 +248,8 @@ method: 'DELETE',
               onChange={e=>setInfrastructure(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="primary" outline type="submit" onClick={EditMainModel}>
+              <MDBBtn color="white" outline type="submit" onClick={EditMainModel}>
                 Edit
-                <MDBIcon far icon="paper-plane" className="ml-2"  />
               </MDBBtn>
             </div>
           </form>
@@ -281,9 +282,8 @@ method: 'DELETE',
               onChange={e=>setService(e.target.value)}
             />
            <div className="text-center mt-4">
-              <MDBBtn color="primary" outline type="submit" onClick={AddService}>
+              <MDBBtn color="white" outline type="submit" onClick={AddService}>
                 Add Service
-                <MDBIcon far icon="paper-plane" className="ml-2"  />
               </MDBBtn>
             </div>
             <br />
@@ -315,9 +315,8 @@ method: 'DELETE',
               onChange={e=>setEquipment(e.target.value)}
             />
            <div className="text-center mt-4">
-              <MDBBtn color="primary" outline type="submit" onClick={AddEquipment}>
+              <MDBBtn color="white" outline type="submit" onClick={AddEquipment}>
                 Add Equipment
-                <MDBIcon far icon="paper-plane" className="ml-2"  />
               </MDBBtn>
             </div>
             <br />
@@ -348,9 +347,8 @@ method: 'DELETE',
               onChange={e=>setContact(e.target.value)}
             />
            <div className="text-center mt-4">
-              <MDBBtn color="primary" outline type="submit" onClick={AddContact}>
+              <MDBBtn color="white" outline type="submit" onClick={AddContact}>
                 Add Contact
-                <MDBIcon far icon="paper-plane" className="ml-2"  />
               </MDBBtn>
             </div>
             <br />
@@ -393,9 +391,8 @@ method: 'DELETE',
               onChange={e=>setHours(e.target.value)}
             />
            <div className="text-center mt-4">
-              <MDBBtn color="primary" outline type="submit" onClick={AddOperatingHours}>
+              <MDBBtn color="white" outline type="submit" onClick={AddOperatingHours}>
               Add operating hours
-                <MDBIcon far icon="paper-plane" className="ml-2"  />
               </MDBBtn>
             </div>
             <br />
@@ -403,7 +400,6 @@ method: 'DELETE',
           <div className="text-center mt-4">
               <MDBBtn color="red" outline type="submit" onClick={deleteEntry}>
                 Delete Entry
-                <MDBIcon far icon="trash-alt" className="ml-2"  />
               </MDBBtn>
             </div>
         </MDBCol>

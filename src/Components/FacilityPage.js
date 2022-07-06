@@ -1,7 +1,8 @@
 import React from "react";
 import { useState ,useEffect} from "react";
 import { Link,useParams } from "react-router-dom";
-import { MDBContainer, MDBRow, MDBCol, } from "mdbreact";
+import { MDBContainer } from "mdbreact";
+import { MDBSpinner } from 'mdb-react-ui-kit';
 
 
 function FacilityPage(){
@@ -29,9 +30,8 @@ function FacilityPage(){
 
    if(isLoading){
       return(
-         <>
-        <h1>Loading....</h1>
-         </>
+        <MDBSpinner color='light'>
+        </MDBSpinner>
       )
    }
 
@@ -39,71 +39,53 @@ function FacilityPage(){
 
    return(
      <div className="thisView">
-     <MDBContainer>
-     <MDBRow>
-        <MDBCol md="6">
-            <p className="h4 text-center mb-4">{data.Name}</p>
-            <label htmlFor="defaultFormContactNameEx" className="grey-text">
-              PROVINCE
-            </label>
-       <p>{data.Province}</p>
-       <label htmlFor="defaultFormContactNameEx" className="grey-text">
-              DISTRICT
-            </label>
-       <p>{data.District}</p>
-       <label htmlFor="defaultFormContactNameEx" className="grey-text">
-              Ward
-            </label>
-       <p>{data.Ward}</p>
-       <label htmlFor="defaultFormContactNameEx" className="grey-text">
-            Coordinates
-            </label>
-       <p>{data.Coordinates}</p>
-       <label htmlFor="defaultFormContactNameEx" className="grey-text">
-            Infrastructure description
-            </label>
-       <p>{data.infrastructure}</p>
-       <label htmlFor="defaultFormContactNameEx" className="grey-text">
-            Services
-            </label>
-            {data.services == null ? (<p></p>):(<>
+      <table>
+        <tr>
+          <th>NAME</th>
+          <th>PROVINCE</th>
+          <th>DISTRICT</th>
+          <th>WARD</th>
+          <th>COORDINATES</th>
+          <th>INFRASTRUCTURE</th>
+          <th>SERVICES</th>
+          <th>EQUIPMENT</th>
+          <th>OPERATING HOURS</th>
+          <th>CONTACT</th>
+        </tr>
+        <tr>
+          <td>{data.Name}</td>
+          <td>{data.Province}</td>
+          <td>{data.District}</td>
+          <td>{data.Ward}</td>
+          <td>{data.Coordinates}</td>
+          <td>{data.infrastructure}</td>
+          <td>{data.services == null ? (<p></p>):(<>
             {data.services.map(info=>(
-              <p>{info.service}</p>
+               <> {info.service},</>
          ))}
-          </>)}
-         <p></p>
-          <label htmlFor="defaultFormContactNameEx" className="grey-text">
-            Equipment
-            </label>
-            {data.equipment == null ? (<p></p>):(<>
+          </>)}</td>
+        <td>{data.equipment == null ? (<p></p>):(<>
             {data.equipment.map(info=>(
-              <p>{info.equipment}</p>
+              <>{info.equipment},</>
          ))}
-          </>)}
-          <p></p>
-          <label htmlFor="defaultFormContactNameEx" className="grey-text">
-            Operating Hours
-            </label>
-            {data.hours == null ? (<p></p>):(<>
+          </>)}</td>
+          <td> {data.hours == null ? (<p></p>):(<>
             {data.hours.map(info=>(
-              <p>{info.day} | {info.hours}</p>
+              <>{info.day} | {info.hours}</>
          ))}
           </>)}
-          <p></p>
-          <label htmlFor="defaultFormContactNameEx" className="grey-text">
-            Contact
-            </label>
-            {data.contacts == null ? (<p></p>):(<>
+          </td>
+          <td>
+          {data.contacts == null ? (<p></p>):(<>
             {data.contacts.map(info=>(
-              <p>{info.details}</p>
+              <>{info.details}</>
          ))}
           </>)}
-          <p></p>
-          <Link to={`/entry/${data.id}`}>Edit entry</Link>
-            <br />
-            
-        </MDBCol>
-      </MDBRow>
+          </td>
+        </tr>
+      </table>
+     <MDBContainer>
+      <Link to={`/entry/${data.id}`}>Edit entry</Link>
      </MDBContainer>
      </div>
       
