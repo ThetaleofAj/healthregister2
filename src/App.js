@@ -9,7 +9,7 @@ import Equipment from "./Components/Equipment";
 import Contacts from "./Components/Contacts";
 import Hours from "./Components/Hours";
 import FacilityPage from "./Components/FacilityPage";
-import { MDBContainer,MDBNavbar,MDBNavbarBrand} from 'mdb-react-ui-kit';
+import { MDBContainer,MDBNavbarBrand} from 'mdb-react-ui-kit';
 
 
 
