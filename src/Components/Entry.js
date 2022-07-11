@@ -18,7 +18,7 @@ function Entry(){
 
    useEffect(()=>{
       setIsLoading(false)
-      fetch('https://barbara1.pythonanywhere.com/api/create/',{
+      fetch('https://rabeccaNew.pythonanywhere.com/api/create/',{
          method: 'GET',
          headers: {
           //  'Authorization': 'token ' + token
@@ -43,7 +43,7 @@ function Entry(){
    },[])
 
    const createEntry=(components)=>{
-      fetch('https://barbara1.pythonanywhere.com/api/create/',{
+      fetch('https:/rabeccaNew.pythonanywhere.com/api/create/',{
          method: 'POST',
          headers: {
           //  'Authorization': 'token ' + token,
