@@ -12,7 +12,7 @@ function Home(){
     
 
    useEffect(()=>{
-      fetch('https://barbara1.pythonanywhere.com/api/')
+      fetch('https://rabeccaNew.pythonanywhere.com/api/')
       .then(res=>res.json())
       .then(
          (result)=>{
@@ -39,7 +39,7 @@ function Home(){
       window.location.reload()
    }
    const onSubmit =()=>{
-      fetch(`https://barbara1.pythonanywhere.com/api/?search=${searchItem}`)
+      fetch(`https://rabeccaNew.pythonanywhere.com/api/?search=${searchItem}`)
       .then(res=>res.json())
       .then(
          (result)=>{
