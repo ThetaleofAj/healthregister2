@@ -43,7 +43,7 @@ function Entry(){
    },[])
 
    const createEntry=(components)=>{
-      fetch('https:/rabeccaNew.pythonanywhere.com/api/create/',{
+      fetch('https://rabeccaNew.pythonanywhere.com/api/create/',{
          method: 'POST',
          headers: {
           //  'Authorization': 'token ' + token,
