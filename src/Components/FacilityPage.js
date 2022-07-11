@@ -11,7 +11,7 @@ function FacilityPage(){
    const [isLoading,setIsLoading] = useState(true)
 
    useEffect(()=>{
-     fetch(`https://barbara1.pythonanywhere.com/api/entry/${params.entryId}`,{
+     fetch(`https://rabeccaNew.pythonanywhere.com/api/entry/${params.entryId}`,{
          method: 'GET',
       })
       .then(res=>res.json())
