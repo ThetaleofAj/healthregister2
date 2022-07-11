@@ -12,7 +12,7 @@ function Hours(){
    const [isLoading,setIsLoading] = useState(true)
 
    useEffect(()=>{
-      fetch(`https://barbara1.pythonanywhere.com/api/edithours/${params.entryId}`,{
+      fetch(`https://rabeccaNew.pythonanywhere.com/api/edithours/${params.entryId}`,{
          method: 'GET',
       })
       .then(res=>res.json())
@@ -30,7 +30,7 @@ function Hours(){
    },[params.entryId])
 
    const Edit=()=>{
-      fetch(`https://barbara1.pythonanywhere.com/api/edithours/${params.entryId}`,{
+      fetch(`https://rabeccaNew.pythonanywhere.com/api/edithours/${params.entryId}`,{
          method: 'PUT',
          headers: {
             'Content-Type' : 'application/json', 
